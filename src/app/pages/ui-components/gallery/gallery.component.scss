@@ -1,0 +1,70 @@
+.main-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; // Adjust the width as needed
+}
+
+.thumbnail {
+    height: 100px;
+}
+
+.thumbnail:active{
+    background-color: #ff0c92;
+}
+
+.thumbnail img {
+    width: 100px;
+    height: 80px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.scroll-viewport {
+    height: 130px;
+    /* Adjust based on your needs */
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+mat-selection-list.list-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+mat-nav-list.list-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.mat-list-item.selected-item {
+    background-color: #de0707;
+    /* Change this to your desired color */
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.arrow {
+    cursor: pointer;
+    padding-bottom: 10px;
+    user-select: none;
+}
+
+.arrow:hover {
+    color: #007bff;
+}
+
+.left-arrow {
+    margin-right: 10px;
+}
+
+.right-arrow {
+    margin-left: 10px;
+}

@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Team</mat-card-title>
+        <mat-card-subtitle>bla bla bla </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
+            @for(contact of contacts; track contact){
+            <mat-grid-tile>
+                <mat-card class="cardWithShadow theme-card">
+                    <mat-card-header>
+                        <mat-card-title>{{contact.name}}</mat-card-title>
+                        <mat-card-subtitle>Tel.: {{contact.pthone}}
+                            <mat-icon class="fb-icon" (click)="openFacebook(contact.fb)">facebook</mat-icon>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="b-t-0">
+                        <img [src]="contact.imgUrl" alt="profile picture" class="profile-image">
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+            }
+        </mat-grid-list>
+        <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+            <div class="b-t-0">
+                <div>
+                    <!-- input -->
+                    <mat-label class="f-w-600 m-b-8 d-block">Your Name</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input formControlName="name" matInput placeholder="Enter yout name..." />
+                        @if (messageForm.get('name')?.invalid) {
+                        <mat-error>Please enter your name</mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+                <div>
+                    <!-- input -->
+                    <mat-label class="f-w-600 m-b-8 d-block">Email</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput type="email" formControlName="email" placeholder="Enter yout email..." />
+                        @if (messageForm.get('email')?.invalid) {
+                        <mat-error>Please enter a valid email address</mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-label class="f-w-600 m-b-8 d-block">Message</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <textarea rows="5" matInput formControlName="message" placeholder="Leave us a message..."></textarea>
+                        @if (messageForm.get('message')?.invalid) {
+                        <mat-error>Please enter a message</mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="m-t-12">
+                <button mat-flat-button color="primary" type="submit" [disabled]="messageForm.invalid"
+                    class="m-r-8">Send</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

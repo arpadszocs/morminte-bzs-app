@@ -1,0 +1,24 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title>{{luncaMs.name}}</mat-card-title>
+        <mat-card-subtitle>{{luncaMs.address}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <google-map height="800px" width="100%" [options]="luncaMs.options">
+        </google-map>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title>{{sovarad.name}}</mat-card-title>
+        <mat-card-subtitle>{{sovarad.address}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <google-map height="800px" width="100%" [options]="sovarad.options">
+            <map-advanced-marker [options]="sovarad.markerOptions">
+
+            </map-advanced-marker>
+        </google-map>
+    </mat-card-content>
+</mat-card>

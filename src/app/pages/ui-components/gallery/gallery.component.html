@@ -1,0 +1,36 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Gallery</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+        <mat-card class="b-0 shadow-none">
+            <mat-card-content>
+                <img mat-card-image [src]="selectedImage.src" class="main-image">
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="b-1 shadow-none">
+            <mat-card-content>
+                <div class="navigation">
+                    <mat-icon class="arrow left-arrow" (click)="selectPrevious()">
+                        arrow_back_ios
+                    </mat-icon>
+                    <cdk-virtual-scroll-viewport itemSize={{images.length}} class="scroll-viewport"
+                        orientation="horizontal">
+                        <mat-selection-list class="list-horizontal" [multiple]="false">
+                            <mat-list-item *cdkVirtualFor="let image of images" class="thumbnail"
+                                (click)="select(image)">
+                                <div #activeItem>
+                                    <img mat-card-image [src]="image.src">
+                                </div>
+                            </mat-list-item>
+                        </mat-selection-list>
+                    </cdk-virtual-scroll-viewport>
+                    <mat-icon class="arrow right-arrow" (click)="selectNext()">
+                        arrow_forward_ios
+                    </mat-icon>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+</mat-card>
